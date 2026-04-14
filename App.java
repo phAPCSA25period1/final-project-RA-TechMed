@@ -6,9 +6,9 @@ public class App {
     // QUESTIONS
     private static final String[] algebraQuestions = {
             "The total cost, in dollars, to make 10,000 units of a certain brand of a premium pen is given by, where is the per unit cost, in dollars. What is the total cost, in dollars, to make 10,000 units of the pen when the per unit cost is $1.20?",
-            "Simplify: 3x + 2x - 4x",
-            "What is 5(x + 2) = 35? Solve for x.",
-            "Simplify: 2(x + 3) + 4(x - 1)",
+            "Imran bought a few packets of chewing gum and donuts for $90. Each packet of chewing gum cost $4, and each donut cost $2. If Imran bought 15 packets of chewing gum, how many donuts did he buy?",
+            "For a competition, Kevin runs at an average speed of 9.30 minutes per mile. Which function models miles Kevin will run in minutes at this speed? A) f(x) = x/9.30 B) f(x) = 9.30 + x C) f(x) = 9.30/x D) f(x) = 9.30x",
+            "The function f is defined by f(x)",
             "What is x² = 16? Find x (positive solution).",
             "Simplify: 7x - 3x + 5",
             "What is 2x - 8 = 4? Solve for x.",
@@ -29,9 +29,9 @@ public class App {
     // SWITCH OUT EXPLANATIONS T CORRECT EXPLANATIONS TO CORRECT ANSWERS TO CORERECT
     // QUESTIONS
     private static final String[] algebraAnswers = {
-            "52,000",
-            "x",
-            "x = 5",
+            "$52,000",
+            "15 Donuts",
+            "A",
             "6x + 2",
             "x = 4",
             "4x + 5",
@@ -54,8 +54,8 @@ public class App {
     // QUESTIONS
     private static final String[] algebraExplanations = {
             "We are given that the total cost to make 10,000 units of the pen is given by f(x)=40,000+10,000x. Since the per unit cost is $1.20, the total cost would be f(1.20)=40,000+10,000×1.20 -> f(1.20)=40,000+12,000 -> f(1.20)=$52,000",
-            "Combine like terms: (3 + 2 - 4)x = x",
-            "5(x + 2) = 35 → x + 2 = 7 → x = 5",
+            "So, we know that Imran bought a few packets of chewing gum and donuts for $90; each packet of chewing gum cost $4, each donut cost $2, and he bought 15 packets of chewing gum. Say Imran bought x donuts; thus, the amount of money he spent on donuts =$2x and the amount of money he spent on chewing gum =$4×15=$60. So, 2x+60 must be equal to $90 -> 2x+60=90 -> x=(90-60)/2 = 15 donuts",
+            "We know that Kevin's average speed is 9.30 minutes per mile. Or, to cover one mile, Kevin will take 9.30 minutes; thus, he will cover 1/9.30 miles in 1 minute. So, in x minutes, he will cover x/9.30 miles. Thus, the correct function is  f(x) = x/9.30.",
             "Distribute: 2x + 6 + 4x - 4 = 6x + 2",
             "x² = 16 → x = √16 = 4",
             "Combine like terms: (7 - 3 + 0)x + 5 = 4x + 5",
