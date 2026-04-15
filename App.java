@@ -123,7 +123,7 @@ public class App {
 
     // Handle Algebra section
     private static void handleAlgebra(Scanner scanner) {
-        System.out.println("\n=== Algebra Problems ===\n");
+        System.out.println("=== Algebra Problems ===");
 
         int score = 0;
         int questionsAsked = 0;
@@ -137,20 +137,16 @@ public class App {
             // Display random question
             System.out.println("Question " + (questionsAsked + 1) + " of 5:");
             System.out.println(algebraQuestions[randomIndex]);
-            System.out.print("\nYour answer: ");
+            System.out.print("Your answer: ");
             String userAnswer = scanner.nextLine().trim();
-
-            // Wait for user to press Enter before showing answer
-            System.out.print("Press Enter to reveal the answer: ");
-            scanner.nextLine();
 
             // Check if answer is correct and show result
             String correctAnswer = algebraAnswers[randomIndex].trim();
             if (userAnswer.equalsIgnoreCase(correctAnswer)) {
-                System.out.println("\n✓ Correct! You earned 1 point.");
+                System.out.println("✓ Correct! You earned 1 point.");
                 score++;
             } else {
-                System.out.println("\n✗ Incorrect. The correct answer is: " + correctAnswer);
+                System.out.println("✗ Incorrect. The correct answer is: " + correctAnswer);
             }
             System.out.println("Explanation: " + algebraExplanations[randomIndex]);
 
@@ -158,7 +154,7 @@ public class App {
 
             // Ask if they want to continue (after each question except the last)
             if (questionsAsked < 5) {
-                System.out.print("\nContinue to next question? (yes/no): ");
+                System.out.print("Continue to next question? (yes/no): ");
                 String response = scanner.nextLine().trim().toLowerCase();
                 if (response.equals("no")) {
                     break;
@@ -168,8 +164,8 @@ public class App {
         }
 
         // Show final score
-        System.out.println("\n========== FINAL SCORE ==========");
+        System.out.println("========== FINAL SCORE ==========");
         System.out.println("You answered " + score + " out of " + questionsAsked + " questions correctly!");
-        System.out.println("=================================\n");
+        System.out.println("=================================");
     }
 }
