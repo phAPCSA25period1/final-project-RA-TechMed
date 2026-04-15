@@ -82,6 +82,7 @@ public class App {
         while (running) {
             displayMenu();
             int choice = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline left in the buffer
 
             if (choice == 1) {
                 handleAlgebra(scanner);
@@ -119,6 +120,7 @@ public class App {
         System.out.println("4. Geometry and Trigonometry");
         System.out.println("5. Quit");
         System.out.print("Choose a subject (1-5): ");
+        System.out.flush(); // Force buffer to flush before reading input
     }
 
     // Handle Algebra section
@@ -138,6 +140,7 @@ public class App {
             System.out.println("Question " + (questionsAsked + 1) + " of 5:");
             System.out.println(algebraQuestions[randomIndex]);
             System.out.print("Your answer: ");
+            System.out.flush(); // Force buffer to flush before reading input
             String userAnswer = scanner.nextLine().trim();
 
             // Check if answer is correct and show result
@@ -155,6 +158,7 @@ public class App {
             // Ask if they want to continue (after each question except the last)
             if (questionsAsked < 5) {
                 System.out.print("Continue to next question? (yes/no): ");
+                System.out.flush(); // Force buffer to flush before reading input
                 String response = scanner.nextLine().trim().toLowerCase();
                 if (response.equals("no")) {
                     break;
