@@ -1,4 +1,237 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23561231)
+
+# 📚 Math Randomizer Quiz
+
+**An interactive AP CSA final project demonstrating object-oriented design principles**
+
+---
+
+## 🎯 Purpose & User
+
+**Who is this for?**
+High school students preparing for standardized math tests (especially AP Exam) who need **targeted practice** across multiple math topics.
+
+**What problem does it solve?**
+Students need a quick, randomized way to quiz themselves on different math topics without creating flashcards or manually searching for problem sets. This application provides:
+- Instant random question generation
+- Immediate feedback with detailed explanations
+- Progress tracking (score display)
+- Multiple difficulty levels (Algebra → Advanced Math)
+
+---
+
+## ✨ Features
+
+✅ **4 Quiz Categories:**
+- Algebra (20 questions)
+- Advanced Math (10 questions)
+- Problem-Solving & Data Analysis (10 questions)
+- Geometry & Trigonometry (10 questions)
+
+✅ **Interactive Quiz System:**
+- Randomly selects questions from chosen category
+- Flexible answer matching (ignores spacing, case, currency symbols)
+- Immediate feedback with correct answers
+- Step-by-step explanations
+- Score tracking and percentage calculation
+
+✅ **User-Friendly Menu:**
+- Clean CLI interface
+- Easy category selection
+- Option to continue or exit after each question
+
+---
+
+## 🏗️ Architecture & Design
+
+This project demonstrates **core AP CSA concepts**:
+
+### **Class Structure**
+```
+┌─────────────────────────────────────────┐
+│            App.java                     │
+│  - Main menu & user interaction         │
+│  - Entry point (main method)            │
+└──────────────┬──────────────────────────┘
+               │
+               ├──> QuestionBank.java (COMPOSITION)
+               │    - Manages 2D array of questions
+               │    - 4 categories × 10-20 questions each
+               │    - Provides access methods
+               │
+               └──> MathQuiz.java (COMPOSITION)
+                    - Handles quiz flow
+                    - Question selection & scoring
+                    - User feedback
+                    - Uses Question objects
+                         ↓
+                    Question.java (ENCAPSULATION)
+                    - Represents single Q&A pair
+                    - Private fields (text, answer, explanation)
+                    - Answer normalization logic
+                    - Getter methods (private access)
+```
+
+### **Key OOP Concepts Demonstrated**
+
+| Concept | Implementation |
+|---------|---|
+| **Encapsulation** | `Question` uses private fields with controlled getter access |
+| **Composition** | `App` → `MathQuiz` → `QuestionBank` & `Question` |
+| **2D Arrays** | `QuestionBank` stores questions in 2D array: `Question[][]` |
+| **Classes** | 4 separate classes with distinct responsibilities |
+| **Methods** | Meaningful methods with single responsibility |
+| **Javadoc** | All public methods documented with parameters/returns |
+
+---
+
+## 🚀 How to Run
+
+### **Requirements**
+- Java 17+ installed
+- Terminal/Command Prompt
+
+### **Compile**
+```bash
+cd /workspaces/final-project-RA-TechMed
+javac *.java
+```
+
+### **Run**
+```bash
+java App
+```
+
+### **Using the Application**
+1. Select a quiz category (1-4) or quit (5)
+2. Answer up to 5 randomized questions
+3. After each question, see if you're correct + explanation
+4. Optionally continue or exit the category
+5. View your final score and percentage
+
+---
+
+## 📋 Class Diagram
+
+```
+┌──────────────────────────────┐
+│        App                   │
+├──────────────────────────────┤
+│ - questionBank: QuestionBank │
+│ - scanner: Scanner           │
+├──────────────────────────────┤
+│ + main(String[]): void       │
+│ + displayMenu(): void        │
+│ + getUserChoice(): int       │
+│ + runQuiz(int): void         │
+└──────────────────────────────┘
+           │
+           │ creates
+           ▼
+┌──────────────────────────────┐
+│      MathQuiz                │
+├──────────────────────────────┤
+│ - questionBank: QuestionBank │
+│ - category: int              │
+│ - score: int                 │
+│ - questionsAsked: int        │
+│ - random: Random             │
+│ - scanner: Scanner           │
+├──────────────────────────────┤
+│ + startQuiz(): void          │
+│ + getScore(): int            │
+│ + getQuestionsAsked(): int   │
+└──────────────────────────────┘
+           │
+           │ uses
+           ▼
+┌──────────────────────────────┐
+│     QuestionBank             │
+├──────────────────────────────┤
+│ - questionBank: Question[][] │
+├──────────────────────────────┤
+│ + getQuestion(int, int)      │
+│ + getCategoryName(int)       │
+│ + getCategorySize(int)       │
+│ + getNumCategories(): int    │
+└──────────────────────────────┘
+           │
+           │ contains
+           ▼
+┌──────────────────────────────┐
+│       Question               │
+├──────────────────────────────┤
+│ - questionText: String       │
+│ - answer: String             │
+│ - explanation: String        │
+├──────────────────────────────┤
+│ + getQuestionText(): String  │
+│ + getAnswer(): String        │
+│ + getExplanation(): String   │
+│ + isCorrect(String): boolean │
+│ + normalizeAnswer(String)    │
+└──────────────────────────────┘
+```
+
+---
+
+## 📊 Testing Evidence
+
+The application has been tested for:
+- ✅ Compilation (no errors)
+- ✅ Execution (runs without crashing)
+- ✅ Menu navigation (all options work)
+- ✅ Quiz flow (questions display, answers check)
+- ✅ Answer matching (flexible, case-insensitive)
+- ✅ Score calculation (accurate tracking)
+- ✅ Multiple categories (all 4 categories functional)
+
+---
+
+## 📝 Code Quality
+
+- **Meaningful class names & methods** (`displayMenu`, `runQuiz`, `startQuiz`)
+- **Clear variable naming** (`questionBank`, `questionsAsked`, `normalizedAnswer`)
+- **Javadoc comments** on all public methods and classes
+- **Single Responsibility Principle** (each class has one job)
+- **DRY principle** (no repeated code)
+- **Error handling** (input validation, exception handling in menu)
+
+---
+
+## 🎓 AP CSA Concepts Applied
+
+✅ **Multiple Interacting Classes**
+✅ **Encapsulation** (private fields, public getters)
+✅ **Arrays** (question storage)
+✅ **2D Arrays** (category organization: `Question[][]`)
+✅ **Methods** (clear, purposeful)
+✅ **Control Flow** (loops, conditionals, switch statements)
+✅ **String Methods** (toLowerCase, replace, trim, equals)
+✅ **Random** (question selection)
+✅ **Composition** (objects using other objects)
+✅ **Javadoc Documentation** (professional code)
+
+---
+
+## 🔧 Development Notes
+
+- **Language:** Java 17+
+- **Standard Library Only:** No external dependencies
+- **Design Pattern:** Composition with MVC-like separation
+- **Answer Matching:** Handles variations (spaces, case, currency symbols)
+
+---
+
+## 👤 Author
+
+**RA-TechMed**
+AP Computer Science A Final Project | 2026
+
+---
+
+**Ready to ace that math test? Let's get randomized! 📖✏️**
+[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23561231)
 # AP Computer Science A – Final Project
 ## Software & Systems Development Capstone
 
@@ -53,7 +286,7 @@ Your commit history is **evidence of your thinking and progress**.
 
 ## 🔁 Agile Development & Sprints
 
-You will complete **4 sprints**.  
+You will complete **4 sprints**.
 Each sprint includes:
 - Planning
 - Building
@@ -65,7 +298,7 @@ Each sprint ends with:
 - A sprint reflection
 - Feedback exchanged with peers
 
-🚫 You may NOT complete multiple sprints at once.  
+🚫 You may NOT complete multiple sprints at once.
 ✅ Each sprint grade is **final**.
 
 ---
@@ -142,7 +375,7 @@ By the end of the project:
 
 # ✨ Final Step: README Update (Very Important)
 
-When your project is complete, you must **rewrite this README**  
+When your project is complete, you must **rewrite this README**
 so it reflects **your software**, not the assignment.
 
 Your final README should include:
@@ -184,6 +417,6 @@ Take pride in:
 - Your code
 - Your documentation
 
-Build something real.  
-Build it thoughtfully.  
+Build something real.
+Build it thoughtfully.
 Build it well.
