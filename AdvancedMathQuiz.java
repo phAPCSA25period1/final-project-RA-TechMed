@@ -26,8 +26,7 @@ public class AdvancedMathQuiz {
      * explanations.
      */
     private void initializeQuestions() {
-        quizData = new String[10][3]; // 10 questions, 3 columns (Q, A, E)
-
+        quizData = new String[10][3]; // 10 questions (Answers. Questions. Explanations )
         quizData[0][0] = "Solve: x² + 5x + 6 = 0";
         quizData[0][1] = "x = -2 or x = -3";
         quizData[0][2] = "Factor: (x+2)(x+3)=0 → x=-2 or x=-3";
@@ -144,12 +143,13 @@ public class AdvancedMathQuiz {
      * Displays the quiz score.
      */
     private void displayScore() {
-        System.out.println("\n========== FINAL SCORE ==========");
+        System.out.println("========== FINAL SCORE ==========");
         System.out.println("You answered " + score + " out of " + questionsAsked + " correctly!");
         if (questionsAsked > 0) {
-            System.out.printf("Percentage: %.1f%%\n", (score * 100.0) / questionsAsked);
+            System.out.print("Percentage: ", (score * 100.0) / questionsAsked);
+            System.out.print("Keep practicing and you'll improve even more!");
         }
-        System.out.println("=================================\n");
+        System.out.println("=================================");
     }
 
     /**
