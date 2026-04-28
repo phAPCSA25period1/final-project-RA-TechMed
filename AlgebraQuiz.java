@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * AlgebraQuiz manages all algebra questions with 2D array structure.
  * Each row contains [question, answer, explanation].
- * Demonstrates encapsulation with private data and public methods./////
+ * Demonstrates encapsulation with private data and public methods.
  */
 public class AlgebraQuiz {
     private String[][] quizData; // 2D array: [question_index][0=question, 1=an, 2=explanation]
@@ -50,27 +50,27 @@ public class AlgebraQuiz {
         quizData[4][2] = "10 times x is 10x. 7 more is 10x+7. So: 10x+7=104";
 
         quizData[5][0] = "Simplify: 7x - 3x + 5";
-        quizData[5][1] = "4x + 5";
+        quizData[5][1] = "4x+5";
         quizData[5][2] = "Combine like terms: (7-3)x + 5 = 4x + 5";
 
         quizData[6][0] = "Solve for x: 2x - 8 = 4";
-        quizData[6][1] = "x = 6";
+        quizData[6][1] = "x=6";
         quizData[6][2] = "2x - 8 = 4 → 2x = 12 → x = 6";
 
         quizData[7][0] = "Simplify: 5x/5 + 2";
-        quizData[7][1] = "x + 2";
+        quizData[7][1] = "x+2";
         quizData[7][2] = "5x/5 = x. So x + 2";
 
         quizData[8][0] = "Solve for x: x/3 = 4";
-        quizData[8][1] = "x = 12";
+        quizData[8][1] = "x=12";
         quizData[8][2] = "x/3 = 4 → x = 4 × 3 → x = 12";
 
         quizData[9][0] = "Simplify: (x + 2)(x - 2)";
-        quizData[9][1] = "x² - 4";
+        quizData[9][1] = "x²-4";
         quizData[9][2] = "Difference of squares: (a+b)(a-b) = a² - b²";
 
         quizData[10][0] = "Solve for x: 3x + 6 = 18";
-        quizData[10][1] = "x = 4";
+        quizData[10][1] = "x=4";
         quizData[10][2] = "3x + 6 = 18 → 3x = 12 → x = 4";
 
         quizData[11][0] = "Simplify: 8x - 2x + 3x";
