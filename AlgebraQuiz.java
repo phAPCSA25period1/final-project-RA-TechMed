@@ -4,7 +4,7 @@ import java.util.Scanner;
 /**
  * AlgebraQuiz manages all algebra questions with 2D array structure.
  * Each row contains [question, answer, explanation].
- * Demonstrates encapsulation with private data and public methods.
+ * Demonstrates encapsulation with private data and public methods./////
  */
 public class AlgebraQuiz {
     private String[][] quizData; // 2D array: [question_index][0=question, 1=an, 2=explanation]
