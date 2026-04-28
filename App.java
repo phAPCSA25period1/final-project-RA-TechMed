@@ -81,7 +81,7 @@ public class App {
      */
     private static void displayWelcome() {
         System.out.println("╔════════════════════════════════════════╗");
-        System.out.println("║  Welcome to Math Randomizer Quiz v3.0  ║");
+        System.out.println("║     Welcome to SAT Math Improver!      ║");
         System.out.println("║  AP Computer Science A Final Project   ║");
         System.out.println("╚════════════════════════════════════════╝");
     }
@@ -91,7 +91,7 @@ public class App {
      */
     private static void displayMenu() {
         System.out.println("═══════════════════════════════════════");
-        System.out.println("        AVAILABLE TOPICS");
+        System.out.println("  5 Question Quiz. Pick your subject!  ");
         System.out.println("═══════════════════════════════════════");
         System.out.println("1. Algebra");
         System.out.println("2. Advanced Math");

@@ -74,7 +74,7 @@ public class AdvancedMathQuiz {
      * @param scanner the Scanner for user input
      */
     public void runQuiz(Scanner scanner) {
-        System.out.println("\n=== Advanced Math ===\n");
+        System.out.println("=== Advanced Math ===");
         score = 0;
         questionsAsked = 0;
 
@@ -101,7 +101,7 @@ public class AdvancedMathQuiz {
             questionsAsked++;
 
             if (questionsAsked < maxQuestions) {
-                System.out.print("\nContinue to next question? (yes/no): ");
+                System.out.print("Continue to next question? (yes/no): ");
                 System.out.flush();
                 String response = scanner.nextLine().trim().toLowerCase();
                 if (response.equals("no")) {
