@@ -65,7 +65,7 @@ Students need a quick, randomized way to quiz themselves on different math topic
 ### **AP CSA Concepts Demonstrated**
 
 | Concept | Implementation |
-|---------|---|
+|---------|----------------|
 | **5 Total Classes** | App + 4 Quiz classes |
 | **Multiple Interacting Classes** | App instantiates and calls methods on each quiz |
 | **Encapsulation** | Private fields in each quiz class, public `runQuiz()` method |
@@ -77,51 +77,23 @@ Students need a quick, randomized way to quiz themselves on different math topic
 
 ---
 
-## 🚀 How to Run
-
-### **Requirements**
-- Java 17+ installed
-- Terminal/Command Prompt
-
-### **Compile**
-```bash
-cd /workspaces/final-project-RA-TechMed
-javac *.java
-```
-
-### **Run**
-```bash
-java App
-```
-
-### **Using the Application**
-1. Select a quiz category (1-4) or quit (5)
-2. Answer up to 5 randomized questions from that category
-3. After each question, see if you're correct + explanation
-4. Optionally continue or exit the category
-5. View your final score and percentage
-6. Return to main menu and select another category
-
----
-
 ## 📋 Detailed Class Breakdown
 
 ### **App.java** (Main Entry Point)
 - **Responsibility:** Menu control and orchestration
 - **Methods:**
   - `main()` – Initializes all quiz objects and runs menu loop
-  - `displayMenu()` – Shows available subjects
-  - `getUserChoice()` – Gets and validates user input
-  - `displayWelcome()` – Shows welcome banner
+  - `displayMenu()` – Displays the main menu for category selection
+  - `getUserChoice()` – Reads user input for category selection
+  - `runQuiz(int choice)` – Calls the appropriate quiz's `runQuiz()` method
 
 ### **AlgebraQuiz.java** (Algebra Subject Class)
 - **Data:** `String[][] quizData` (20 questions × 3 columns)
 - **Columns:** `[i][0]` = question, `[i][1]` = answer, `[i][2]` = explanation
 - **Methods:**
-  - `initializeQuestions()` – Populates the 2D array
-  - `runQuiz(Scanner)` – Runs quiz for this subject
-  - `isCorrect()` – Checks answer
-  - `displayScore()` – Shows results
+  - `initializeQuestions()` – Populates the 2D array with algebra questions
+  - `runQuiz(Scanner scanner)` – Handles quiz logic for algebra
+  - `displayScore()` – Shows results for the algebra quiz
 
 ### **AdvancedMathQuiz.java** (Advanced Math Subject Class)
 - **Data:** `String[][] quizData` (10 questions × 3 columns)
@@ -189,8 +161,8 @@ User selects category (1-4)
     ↓
 App calls appropriate quiz's runQuiz() method
     ├→ AlgebraQuiz.runQuiz() or
-    ├→ AdvancedMathQuiz.runQuiz() or
-    ├→ ProblemSolvingDataAnalysisQuiz.runQuiz() or
+    ├→ AdvancedMathQuiz.runQuiz()
+    ├→ ProblemSolvingDataAnalysisQuiz.runQuiz()
     └→ TrigonometryGeometryQuiz.runQuiz()
     ↓
 Quiz accesses its 2D array and runs quiz logic
