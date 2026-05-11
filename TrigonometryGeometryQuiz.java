@@ -22,7 +22,7 @@ public class TrigonometryGeometryQuiz {
         initializeQuestions();
     }
     private void initializeQuestions() {
-        quizData = new String[10][3]; // 10 questions, 3 columns (Q, A, E)
+        quizData = new String[21][3]; // 10 questions, 3 columns (Q, A, E)
 
         quizData[0][0] = "What is the area of a rectangle with length 8 and width 5?";
         quizData[0][1] = "40";
@@ -50,7 +50,7 @@ public class TrigonometryGeometryQuiz {
 
         quizData[6][0] = "What is the volume of a cube with side length 4?";
         quizData[6][1] = "64";
-        quizData[6][2] = "Volume = side³ = 4³ = 64 cubic units";
+        quizData[6][2] = "Volume = side³ = 4³ = 64 cubic u^nits";
 
         quizData[7][0] = "What is cos(0°)?";
         quizData[7][1] = "1";
@@ -63,8 +63,28 @@ public class TrigonometryGeometryQuiz {
         quizData[9][0] = "Line p is defined by 5x + 6y = 30. Line q is perpendicular to line p in the xy - plane. What is the slope of line q? Answer in fraction form";
         quizData[9][1] = "6/5";
         quizData[9][2] = "We know that if two lines in the xy-plane are perpendicular to each other, the product of their slopes equals −1.Thus,m is slope, (m1)(m2)=−1 Transforming 5x+6y=30 to y=mx+b form, we get 6y=−5x+30. Then divide by 6 to get y=−5/6x+5. Thus, slope =m1=−5/6. So, We know that m1m2=−1 -> -5/6 x m2 = -1 -> dividing with flip the numerator and denominator -> m2 = 6/5";
+
+        quizData[10][0] = "What is the area of a circle with radius 5?";
+        quizData[10][1] = "25π";
+        quizData[10][2] = "Area = πr² = π(5)² = 25π square units";
 //REPLACE THESE QUESINS
-}
+        quizData[11][0] = "What is the area of a circle with radius 5?";
+        quizData[11][1] = "25π";
+        quizData[11][2] = "Area = πr² = π(5)² = 25π square units";
+
+        quizData[12][0] = "What is the area of a circle with radius 5?";
+        quizData[12][1] = "25π";
+        quizData[12][2] = "Area = πr² = π(5)² = 25π square units";
+
+        quizData[13][0] = "What is the area of a circle with radius 5?";
+        quizData[13][1] = "25π";
+        quizData[13][2] = "Area = πr² = π(5)² = 25π square units";
+
+        quizData[14][0] = "What is the area of a circle with radius 5?";
+        quizData[14][1] = "25π";
+        quizData[14][2] = "Area = πr² = π(5)² = 25π square units";
+
+    }
 
     /**
      * Initializes the 2D array with all geometry questions, answers, and

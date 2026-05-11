@@ -28,7 +28,7 @@ public class ProblemSolvingDataAnalysisQuiz {
      * explanations.
      */
     private void initializeQuestions() {
-        quizData = new String[10][3]; // 10 questions, 3 columns (Q, A, E)
+        quizData = new String[20][3]; // 10 questions, 3 columns (Q, A, E)
 
         quizData[0][0] = "A store sells items at $12 each. If they sell 50 items, what is the total revenue?";
         quizData[0][1] = "$600";

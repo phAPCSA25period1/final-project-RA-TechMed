@@ -218,7 +218,7 @@ public class AdvancedMathQuiz {
         System.out.println("========== FINAL SCORE ==========");
         System.out.println("You answered " + score + " out of " + questionsAsked + " correctly!");
         if (questionsAsked > 0) {
-            System.out.print("Percentage: ", (score * 100.0) / questionsAsked);
+            System.out.print("Percentage: " + (score * 100.0) / questionsAsked);
             System.out.print("Keep practicing and you'll improve even more!");
         }
         System.out.println("=================================");
