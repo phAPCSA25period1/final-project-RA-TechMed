@@ -21,6 +21,7 @@ public class TrigonometryGeometryQuiz {
         this.questionsAsked = 0;
         initializeQuestions();
     }
+
     private void initializeQuestions() {
         quizData = new String[21][3]; // 10 questions, 3 columns (Q, A, E)
 
@@ -67,22 +68,22 @@ public class TrigonometryGeometryQuiz {
         quizData[10][0] = "What is the area of a circle with radius 5?";
         quizData[10][1] = "25π";
         quizData[10][2] = "Area = πr² = π(5)² = 25π square units";
-//REPLACE THESE QUESINS
-        quizData[11][0] = "What is the area of a circle with radius 5?";
-        quizData[11][1] = "25π";
-        quizData[11][2] = "Area = πr² = π(5)² = 25π square units";
 
-        quizData[12][0] = "What is the area of a circle with radius 5?";
-        quizData[12][1] = "25π";
-        quizData[12][2] = "Area = πr² = π(5)² = 25π square units";
+        quizData[11][0] = "What is the tangent of 45°?";
+        quizData[11][1] = "1";
+        quizData[11][2] = "tan(45°) = 1 by definition of the tangent function";
 
-        quizData[13][0] = "What is the area of a circle with radius 5?";
-        quizData[13][1] = "25π";
-        quizData[13][2] = "Area = πr² = π(5)² = 25π square units";
+        quizData[12][0] = "What is the area of a parallelogram with base 12 and height 7?";
+        quizData[12][1] = "84";
+        quizData[12][2] = "Area = base × height = 12 × 7 = 84 square units";
 
-        quizData[14][0] = "What is the area of a circle with radius 5?";
-        quizData[14][1] = "25π";
-        quizData[14][2] = "Area = πr² = π(5)² = 25π square units";
+        quizData[13][0] = "What is the sine of 30°?";
+        quizData[13][1] = "0.5";
+        quizData[13][2] = "sin(30°) = 0.5 by definition of the sine function";
+
+        quizData[14][0] = "What is the volume of a cylinder with radius 3 and height 5?";
+        quizData[14][1] = "45π";
+        quizData[14][2] = "Volume = πr²h = π(3)²(5) = 45π cubic units";
 
     }
 
@@ -97,6 +98,7 @@ public class TrigonometryGeometryQuiz {
      * @param scanner the Scanner for user input
      */
     public void runQuiz(Scanner scanner) {
+
         System.out.println("\n=== Trigonometry and Geometry ===\n");
         score = 0;
         questionsAsked = 0;
