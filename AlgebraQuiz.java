@@ -80,6 +80,8 @@ public class AlgebraQuiz {
         quizData[15][0] = "Which is equivalent to (1/x²)^(-9/8) where x > 0?\nA) ⁹√(x⁴)  B) ⁴√(x⁹)  C) ⁴√(x⁻⁹)  D) ⁹√(x⁻⁴)";
         quizData[15][1] = "b";
         quizData[15][2] = "(x^-2)^(-9/8) = x^(18/8) = x^(9/4) = ⁴√(x⁹)";
+        quizData[15][1] = "b";
+        quizData[15][2] = "(x^-2)^(-9/8) = x^(18/8) = x^(9/4) = ⁴√(x⁹)";
 
         quizData[16][0] = "A factory's average cost per pen is f(s) = 3 + 7s dollars. Each pen sells at $p. Which inequality means profit?\nA) 3 + 7s > p  B) 3 + 7s² > ps  C) 3 + 7s² > p  D) 3 + 7s < p";
         quizData[16][1] = "d";
@@ -107,7 +109,8 @@ public class AlgebraQuiz {
 
         // Shuffle indices so no repeats
         List<Integer> indices = new ArrayList<>();
-        for (int i = 0; i < quizData.length; i++) indices.add(i);
+        for (int i = 0; i < quizData.length; i++)
+            indices.add(i);
         Collections.shuffle(indices);
 
         while (questionsAsked < maxQuestions) {
@@ -134,7 +137,8 @@ public class AlgebraQuiz {
                 System.out.print("\nContinue to next question? (yes/no): ");
                 System.out.flush();
                 String response = scanner.nextLine().trim().toLowerCase();
-                if (response.equals("no")) break;
+                if (response.equals("no"))
+                    break;
                 System.out.println();
             }
         }
@@ -147,13 +151,14 @@ public class AlgebraQuiz {
     }
 
     private String normalizeAnswer(String answer) {
-        if (answer == null) return "";
+        if (answer == null)
+            return "";
         return answer
-            .replaceAll("[\\s,.$€£¥]", "")  // strip whitespace, commas, currency symbols
-            .replace("−", "-")               // Unicode minus → ASCII minus
-            .replaceAll("(?i)^([a-d])\\).*", "$1")  // "A) some text" → "a"
-            .toLowerCase()
-            .trim();
+                .replaceAll("[\\s,.$€£¥]", "") // strip whitespace, commas, currency symbols
+                .replace("−", "-") // Unicode minus → ASCII minus
+                .replaceAll("(?i)^([a-d])\\).*", "$1") // "A) some text" → "a"
+                .toLowerCase()
+                .trim();
     }
 
     private void displayScore() {
@@ -165,6 +170,11 @@ public class AlgebraQuiz {
         System.out.println("=================================\n");
     }
 
-    public int getScore() { return score; }
-    public int getTotalQuestions() { return quizData.length; }
+    public int getScore() {
+        return score;
+    }
+
+    public int getTotalQuestions() {
+        return quizData.length;
+    }
 }

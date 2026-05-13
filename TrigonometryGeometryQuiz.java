@@ -1,4 +1,6 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -10,20 +12,18 @@ public class TrigonometryGeometryQuiz {
     private String[][] quizData; // 2D array: [question_index][0=q, 1=a, 2=explanation]
     private int score;
     private int questionsAsked;
-    private Random random;
 
     /**
      * Constructs TrigonometryGeometryQuiz and initializes all questions.
      */
     public TrigonometryGeometryQuiz() {
-        this.random = new Random();
         this.score = 0;
         this.questionsAsked = 0;
         initializeQuestions();
     }
 
     private void initializeQuestions() {
-        quizData = new String[21][3]; // 10 questions, 3 columns (Q, A, E)
+        quizData = new String[15][3]; // 15 questions, 3 columns (Q, A, E)
 
         quizData[0][0] = "What is the area of a rectangle with length 8 and width 5?";
         quizData[0][1] = "40";
@@ -98,40 +98,44 @@ public class TrigonometryGeometryQuiz {
      * @param scanner the Scanner for user input
      */
     public void runQuiz(Scanner scanner) {
-
         System.out.println("\n=== Trigonometry and Geometry ===\n");
         score = 0;
         questionsAsked = 0;
 
         int maxQuestions = 5;
 
+        // Shuffle indices so no repeats
+        List<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < quizData.length; i++)
+            indices.add(i);
+        Collections.shuffle(indices);
+
         while (questionsAsked < maxQuestions) {
-            int randomIndex = random.nextInt(quizData.length);
+            int idx = indices.get(questionsAsked);
 
             System.out.println("Question " + (questionsAsked + 1) + " of " + maxQuestions + ":");
-            System.out.println(quizData[randomIndex][0]);
+            System.out.println(quizData[idx][0]);
             System.out.print("Your answer: ");
             System.out.flush();
 
             String userAnswer = scanner.nextLine().trim();
 
-            if (isCorrect(userAnswer, quizData[randomIndex][1])) {
+            if (isCorrect(userAnswer, quizData[idx][1])) {
                 System.out.println("✓ Correct! You earned 1 point.");
                 score++;
             } else {
-                System.out.println("✗ Incorrect. The correct answer is: " + quizData[randomIndex][1]);
+                System.out.println("✗ Incorrect. The correct answer is: " + quizData[idx][1]);
             }
 
-            System.out.println("Explanation: " + quizData[randomIndex][2]);
+            System.out.println("Explanation: " + quizData[idx][2]);
             questionsAsked++;
 
             if (questionsAsked < maxQuestions) {
                 System.out.print("\nContinue to next question? (yes/no): ");
                 System.out.flush();
                 String response = scanner.nextLine().trim().toLowerCase();
-                if (response.equals("no")) {
+                if (response.equals("no"))
                     break;
-                }
                 System.out.println();
             }
         }
@@ -159,9 +163,14 @@ public class TrigonometryGeometryQuiz {
     private String normalizeAnswer(String answer) {
         if (answer == null)
             return "";
-        return answer.replace(" ", "").replace("**", "^").replace("$", "")
-                .replace("£", "").replace("€", "").replace("¥", "").replace(",", "")
-                .toLowerCase().trim();
+        return answer
+                .replace(" ", "")
+                .replace("**", "^")
+                .replace("pi", "π")
+                .replace("sqrt", "√")
+                .replaceAll("[\\$,£€¥]", "")
+                .toLowerCase()
+                .trim();
     }
 
     /**

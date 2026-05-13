@@ -1,4 +1,6 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -11,13 +13,11 @@ public class ProblemSolvingDataAnalysisQuiz {
     private String[][] quizData; // 2D array: [question_index][0=q, 1=a, 2=explanation]
     private int score;
     private int questionsAsked;
-    private Random random;
 
     /**
      * Constructs ProblemSolvingDataAnalysisQuiz and initializes all questions.
      */
     public ProblemSolvingDataAnalysisQuiz() {
-        this.random = new Random();
         this.score = 0;
         this.questionsAsked = 0;
         initializeQuestions();
@@ -28,7 +28,7 @@ public class ProblemSolvingDataAnalysisQuiz {
      * explanations.
      */
     private void initializeQuestions() {
-        quizData = new String[20][3]; // 10 questions, 3 columns (Q, A, E)
+        quizData = new String[10][3]; // 10 questions, 3 columns (Q, A, E)
 
         quizData[0][0] = "A store sells items at $12 each. If they sell 50 items, what is the total revenue?";
         quizData[0][1] = "$600";
@@ -83,8 +83,13 @@ public class ProblemSolvingDataAnalysisQuiz {
 
         int maxQuestions = 5;
 
+        // Shuffle indices so no repeats
+        List<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < quizData.length; i++)
+            indices.add(i);
+        Collections.shuffle(indices);
         while (questionsAsked < maxQuestions) {
-            int randomIndex = random.nextInt(quizData.length);
+            int randomIndex = indices.get(questionsAsked);
 
             System.out.println("Question " + (questionsAsked + 1) + " of " + maxQuestions + ":");
             System.out.println(quizData[randomIndex][0]);
@@ -137,9 +142,14 @@ public class ProblemSolvingDataAnalysisQuiz {
     private String normalizeAnswer(String answer) {
         if (answer == null)
             return "";
-        return answer.replace(" ", "").replace("**", "^").replace("$", "")
-                .replace("£", "").replace("€", "").replace("¥", "").replace(",", "")
-                .toLowerCase().trim();
+        return answer
+                .replace(" ", "")
+                .replace("**", "^")
+                .replace("pi", "π")
+                .replace("sqrt", "√")
+                .replaceAll("[\\$,£€¥]", "")
+                .toLowerCase()
+                .trim();
     }
 
     /**

@@ -113,10 +113,23 @@ public class App {
 
         int choice = -1;
         try {
-            choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            if (scanner.hasNextInt()) {
+                choice = scanner.nextInt();
+                scanner.nextLine(); // Consume newline
+            } else if (scanner.hasNextLine()) {
+                scanner.nextLine(); // Clear invalid input
+                choice = -1;
+            } else {
+                choice = -1;
+            }
         } catch (Exception e) {
-            scanner.nextLine(); // Clear invalid input
+            try {
+                if (scanner.hasNextLine()) {
+                    scanner.nextLine(); // Clear invalid input
+                }
+            } catch (Exception ignored) {
+                // Input stream is closed or unavailable
+            }
             choice = -1;
         }
 

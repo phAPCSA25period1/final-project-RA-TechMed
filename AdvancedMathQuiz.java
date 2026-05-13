@@ -1,4 +1,6 @@
-import java.util.Random;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -9,13 +11,11 @@ public class AdvancedMathQuiz {
     private String[][] quizData; // 2D array: [question_index][0=q, 1=a, 2=explanation]
     private int score;
     private int questionsAsked;
-    private Random random;
 
     /**
      * Constructs AdvancedMathQuiz and initializes all questions.
      */
     public AdvancedMathQuiz() {
-        this.random = new Random();
         this.score = 0;
         this.questionsAsked = 0;
         initializeQuestions();
@@ -25,7 +25,7 @@ public class AdvancedMathQuiz {
      * Initializes the 2D array with all advanced math questions, answers, and
      * explanations.
      */
-        private void initializeQuestions() {
+    private void initializeQuestions() {
         quizData = new String[20][3]; // 20 questions [Questions, Answers, Explanations]
 
         // AM-001: Nonlinear equations in one variable (Hard)
@@ -152,8 +152,14 @@ public class AdvancedMathQuiz {
 
         int maxQuestions = 5;
 
+        // Shuffle indices so no repeats
+        List<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < quizData.length; i++)
+            indices.add(i);
+        Collections.shuffle(indices);
+
         while (questionsAsked < maxQuestions) {
-            int randomIndex = random.nextInt(quizData.length);
+            int randomIndex = indices.get(questionsAsked);
 
             System.out.println("Question " + (questionsAsked + 1) + " of " + maxQuestions + ":");
             System.out.println(quizData[randomIndex][0]);
@@ -206,9 +212,14 @@ public class AdvancedMathQuiz {
     private String normalizeAnswer(String answer) {
         if (answer == null)
             return "";
-        return answer.replace(" ", "").replace("**", "^").replace("$", "")
-                .replace("£", "").replace("€", "").replace("¥", "").replace(",", "")
-                .toLowerCase().trim();
+        return answer
+                .replace(" ", "")
+                .replace("**", "^")
+                .replace("pi", "π")
+                .replace("sqrt", "√")
+                .replaceAll("[\\$,£€¥]", "")
+                .toLowerCase()
+                .trim();
     }
 
     /**
