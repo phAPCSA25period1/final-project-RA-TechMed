@@ -154,11 +154,17 @@ public class AlgebraQuiz {
         if (answer == null)
             return "";
         return answer
+                .toLowerCase()
+                .trim()
+                .replace("²", "^2")
+                .replace("³", "^3")
+                .replace("⁴", "^4")
+                .replace("¹", "^1")
                 .replaceAll("[\\s,.$€£¥]", "") // strip whitespace, commas, currency symbols
                 .replace("−", "-") // Unicode minus → ASCII minus
                 .replaceAll("(?i)^([a-d])\\).*", "$1") // "A) some text" → "a"
-                .toLowerCase()
-                .trim();
+                .replace("pi", "π")
+                .replace("sqrt", "√");
     }
 
     private void displayScore() {

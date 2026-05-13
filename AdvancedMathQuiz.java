@@ -213,18 +213,19 @@ public class AdvancedMathQuiz {
         if (answer == null)
             return "";
         return answer
+                .toLowerCase()
+                .trim()
                 .replace(" ", "")
+                .replace("²", "^2")
+                .replace("³", "^3")
+                .replace("⁴", "^4")
+                .replace("¹", "^1")
                 .replace("**", "^")
                 .replace("pi", "π")
                 .replace("sqrt", "√")
-                .replaceAll("[\\$,£€¥]", "")
-                .toLowerCase()
-                .trim();
+                .replaceAll("[\\$,£€¥]", "");
     }
 
-    /**
-     * Displays the quiz score.
-     */
     private void displayScore() {
         System.out.println("========== FINAL SCORE ==========");
         System.out.println("You answered " + score + " out of " + questionsAsked + " correctly!");
